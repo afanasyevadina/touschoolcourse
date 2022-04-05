@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            height: 100vh;
+            background-color: #020311;
+        }
+
+        .wrapper,
+        .eye,
+        .eye-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .eye,
+        .eye-inner,
+        .eye-inner-dot {
+            border-radius: 50%;
+        }
+
+        .eye {
+            background-color: #FFFFFF;
+            width: 50px;
+            height: 50px;
+        }
+
+        .eye-inner {
+            background-color: #4b1c01;
+            width: 24px;
+            height: 24px;
+        }
+
+        .eye-inner-dot {
+            background-color: #000000;
+            width: 12px;
+            height: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="eye">
+            <div class="eye-inner">
+                <div class="eye-inner-dot"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const eyeInner = document.querySelector('.eye-inner')
+        const MAX_EYE_OFFSET = 13
+        var offsetX, offsetY, sin, cos, axisMax, hipo
+        window.onmousemove = e => {
+            axisMax = Math.min((window.innerWidth / 2), (window.innerHeight / 2))
+            offsetX = Math.max(Math.min((e.x - window.innerWidth / 2), axisMax), axisMax * -1)
+            offsetY = Math.max(Math.min((e.y - window.innerHeight / 2), axisMax), axisMax * -1)
+            hipo = Math.sqrt(2 * axisMax * axisMax)
+            sin = offsetY / hipo
+            cos = offsetX / hipo
+            eyeInner.style.transform = `translate(${cos * MAX_EYE_OFFSET}px, ${sin * MAX_EYE_OFFSET}px)`
+        }
+    </script>
+</body>
+
+</html>

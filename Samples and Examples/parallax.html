@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax</title>
+    <style>
+        * {
+            margin: 0;
+            font-family: sans-serif;
+        }
+        section {
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        section div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+        }
+        h1 {
+            font-size: 5em;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            opacity: .8;
+        }
+        section:nth-child(1) div {
+            background-image: url('https://images.pexels.com/photos/2100018/pexels-photo-2100018.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1920&w=1280');
+        }
+        section:nth-child(2) div {
+            background-image: url('https://images.pexels.com/photos/2448749/pexels-photo-2448749.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+        }
+        section:nth-child(3) div {
+            background-image: url('https://images.pexels.com/photos/3573382/pexels-photo-3573382.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div>
+            <h1>What do you think?</h1>
+        </div>
+    </section>
+    <section>
+        <div>
+            <h1>There will be some interesting</h1>
+        </div>
+    </section>
+    <section>
+        <div>
+            <h1>What makes you happy?</h1>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            font-family: Segoe Print;
+            font-size: 1em;
+        }
+
+        .wrapper {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: rgb(18, 80, 143);
+            animation: sky calc(.5s * 60) linear infinite alternate;
+            overflow: hidden;
+        }
+
+        .clock {
+            border-radius: 50%;
+            height: 50vh;
+            width: 50vh;
+            background-color: #FFFFFF;
+            border: 5px solid #333333;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .arrow {
+            background-color: #333333;
+            transform-origin: bottom center;
+            width: 5px;
+            height: 35%;
+            position: absolute;
+            bottom: 50%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            animation: tick .5s linear infinite;
+        }
+
+        .arrow-hours {
+            height: 30%;
+            animation-duration: calc(.5s * 60);
+        }
+
+        .dot {
+            border-radius: 50%;
+            width: 5px;
+            height: 5px;
+            background-color: #333333;
+        }
+
+        .sun {
+            position: absolute;
+            bottom: -150px;
+            left: 0;
+            width: 25vh;
+            height: 25vh;
+            border-radius: 50%;
+            background-color: rgb(255, 217, 0);
+            transform-origin: 50vw 10vh;
+            animation: sun calc(.5s * 60) linear infinite;
+        }
+
+        .moon {
+            position: absolute;
+            bottom: -25vh;
+            left: 0;
+            width: 25vh;
+            height: 25vh;
+            border-radius: 50%;
+            background-color: #FFFFFF;
+            transform-origin: 50vw 10vh;
+            animation: sun calc(.5s * 60) linear infinite;
+            animation-delay: calc(.5s * 30);
+        }
+
+        .star {
+            position: absolute;
+            background-color: rgb(255, 217, 0);
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            opacity: 0;
+            filter: blur(3px);
+            animation: appear calc(.5s * 60) linear infinite;
+        }
+
+        .cloud {
+            position: absolute;
+            top: 50%;
+            width: 180px;
+            height: 100px;
+            opacity: .5;
+            animation: cloud 10s linear infinite alternate;
+        }
+
+        .cloud-left {
+            left: 5%;
+        }
+
+        .cloud-right {
+            right: 3%;
+        }
+
+        .cloud div:nth-child(1) {
+            position: absolute;
+            left: 0;
+            bottom: 5px;
+            width: 80px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #FFFFFF;
+        }
+
+        .cloud div:nth-child(2) {
+            position: absolute;
+            left: 40px;
+            bottom: 0;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background-color: #FFFFFF;
+        }
+
+        .cloud div:nth-child(3) {
+            position: absolute;
+            left: 90px;
+            bottom: 5px;
+            width: 90px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #FFFFFF;
+        }
+
+        @keyframes tick {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes sky {
+            25% {
+                background-color: rgb(131, 196, 233);
+            }
+
+            50% {
+                background-color: rgb(18, 80, 143);
+            }
+
+            75% {
+                background-color: rgb(3, 0, 14);
+            }
+
+            100% {
+                background-color: rgb(18, 80, 143);
+            }
+        }
+
+        @keyframes sun {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes appear {
+            50% {
+                opacity: 0;
+            }
+
+            75% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes cloud {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sun"></div>
+        <div class="moon">
+            <img src="images/moon.png" alt="">
+        </div>
+        <div class="cloud cloud-left">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="cloud cloud-right">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="clock">
+            <div class="arrow arrow-min"></div>
+            <div class="arrow arrow-hours"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+</body>
+<script>
+    const wrapper = document.querySelector('.wrapper')
+    for (let i = 0; i < 100; i++) {
+        var star = document.createElement('div')
+        star.classList.add('star')
+        star.style.left = Math.random() * window.innerWidth + 'px'
+        star.style.top = Math.random() * window.innerHeight + 'px'
+        wrapper.prepend(star)
+    }
+</script>
+
+</html>

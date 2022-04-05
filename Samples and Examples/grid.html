@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        * {
+            margin: 0;
+            font-family: sans-serif;
+        }
+        .d-f {
+            display: flex;
+        }
+        .a-e {
+            align-items: flex-end;
+        }
+        .j-e {
+            justify-content: flex-end;
+        }
+        .a-c {
+            align-items: center;
+        }
+        .j-c {
+            justify-content: center;
+        }
+        header {
+            background-color: #000000;
+            padding: 20px 50px;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+        }
+        .logo {
+            text-align: center;
+        }
+        .logo a {
+            text-decoration: none;
+            color: #FFFFFF;
+            font-size: 1.3em;
+            font-weight: bold;
+            letter-spacing: .2em;
+        }
+        .menu-toggler, .menu-toggler-close {
+            cursor: pointer;
+        }
+        .menu-toggler-close {
+            border-radius: 50%;
+            border: 1px solid #000000;
+            position: relative;
+            display: flex;
+            width: 45px;
+            height: 45px;
+        }
+        .menu-toggler {
+            display: grid;
+            grid-template-rows: repeat(3, 2px);
+            grid-gap: 7px;
+            width: 25px;
+        }
+        .menu-toggler span {
+            background-color: #FFFFFF;
+        }
+        .menu-toggler-close span {
+            height: 1px;
+            width: 20px;
+            background-color: #000000;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            transform: rotate(45deg);
+        }
+        .menu-toggler-close span:nth-child(2) {
+            transform: rotate(-45deg);
+        }
+        .menu {
+            position: fixed;
+            width: 100%;
+            min-height: 100vh;
+            background-color: #F0F0F0;
+            padding: 15px;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            z-index: 999;
+            transition: .5s;
+        }
+        .menu {
+            padding: 15px 5%;
+        }
+        .menu::before {
+            content: '';
+            position: fixed;
+            bottom: 30px;
+            left: 5%;
+            width: 100px;
+            height: 150px;
+            border-left: 3px solid #000000;
+            border-bottom: 3px solid #000000;
+            transition: .6s .5s;
+        }
+        .menu:after {
+            content: '';
+            position: fixed;
+            bottom: 30px;
+            right: 5%;
+            width: 100px;
+            height: 150px;
+            border-right: 3px solid #000000;
+            border-bottom: 3px solid #000000;
+            transition: .6s .5s;
+        }
+        .menu nav a {
+            display: block;
+            text-align: center;
+            position: relative;
+            text-decoration: none;
+            color: #000000;
+            font-size: 1.75em;
+            padding: 10px;
+            transition: .4s .5s;
+        }
+        .menu nav a:after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #000000;
+            transition: .3s;
+        }
+        .menu nav a:not(:hover):after {
+            transform: scaleX(0);
+        }
+        #menu-check {
+            display: none;
+        }
+        #menu-check:not(:checked) + .menu {
+            transform: translateY(-100%);
+            transition: .5s .4s;
+        }
+        #menu-check:not(:checked) + .menu::before, #menu-check:not(:checked) + .menu:after {
+            width: 0;
+            height: 0;
+            transition: .4s;
+        }
+        #menu-check:not(:checked) + .menu nav a {
+            transform: scaleX(0);
+            transition: .4s;
+        }
+        .menu .menu-toggler-close, .menu .logo {
+            border-color: #000000;
+            color: #000000;
+        }
+        .menu .menu-toggler-close:hover, .menu .logo:hover {
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+        .menu .menu-toggler-close:hover span {
+            background-color: #FFFFFF;
+        }
+        .search-icon {
+            border: 2px solid #FFFFFF;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            position: relative;
+        }
+        .search-icon:after {
+            position: absolute;
+            content: '';
+            height: 6px;
+            width: 2px;
+            transform: rotate(-45deg);
+            background-color: #FFFFFF;
+            bottom: -2px;
+            right: -2px;
+            transform-origin: bottom;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: 110px;
+        }
+        .cell {
+            padding: 20px;
+            color: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+        }
+        .cell-content {
+            filter: drop-shadow(2px 4px 6px black);
+        }
+        .cell img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            transition: .5s .2s;
+        }
+        .cell:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, .85));
+            z-index: -1;
+        }
+        .cell:hover img {
+            transform: scale(1.1);
+            filter: brightness(.5);
+        }
+        .cell .h {
+            letter-spacing: .15em;
+            font-size: 2em;
+            margin-bottom: 25px;
+            position: relative;
+            font-weight: normal;
+        }
+        .cell .h2 {
+            font-size: 2em;
+        }
+        .cell .h3 {
+            font-size: 1.75em;
+        }
+        .cell .h4 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        .cell .h4:after {
+            width: 50px;
+        }
+        .cell .h:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 70px;
+            border-bottom: 2px solid #FFFFFF;
+        }
+        .cell .h4:after {
+            width: 50px;
+        }
+        .cell:nth-child(1) {
+            grid-column: 1 / 5;
+            grid-row: 1 / 4;
+        }
+        .cell:nth-child(2) {
+            grid-column: 5 / 10;
+            grid-row: 1 / 3;
+        }
+        .cell:nth-child(3) {
+            grid-column: 10 / 13;
+            grid-row: 1 / 6;
+        }
+        .cell:nth-child(4) {
+            grid-column: 1 / 5;
+            grid-row: 4 / 6;
+        }
+        .cell:nth-child(5) {
+            grid-column: 5 / 8;
+            grid-row: 3 / 6;
+        }
+        .cell:nth-child(6) {
+            grid-column: 8 / 10;
+            grid-row: 3 / 5;
+        }
+        .cell:nth-child(7) {
+            grid-column: 8 / 10;
+            background-color: rgb(22, 44, 94);
+            color: #FFFFFF;
+            letter-spacing: .15em;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            font-size: 1.15em;
+            transition: .4s;
+        }
+        .cell:nth-child(7):hover {
+            background-color: rgb(1, 21, 66);
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="menu-check">
+    <section class="menu">
+        <div class="container">
+            <label class="menu-toggler-close" for="menu-check">
+                <span></span><span></span>
+            </label>
+        </div>
+        <div class="d-f a-c j-c">
+            <nav>
+                <a href="#">ABOUT</a>
+                <a href="#">PROJECTS</a>
+                <a href="#">BLOG</a>
+                <a href="#">TEAM</a>
+                <a href="#">CASES</a>
+            </nav>
+        </div>
+    </section>
+    <header>
+        <label class="menu-toggler" for="menu-check">
+            <span></span><span></span><span></span>
+        </label>
+        <div class="logo">
+            <a href="#">LOGO</a>
+        </div>
+        <div class="search">
+            <div class="search-icon"></div>
+        </div>
+    </header>
+    <section class="grid">
+        <div class="cell d-f a-e">
+            <img src="https://images.pexels.com/photos/1105766/pexels-photo-1105766.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+            <div>
+                <h2 class="h h2">WORKING HARD</h2>
+                <p>To achieve impressive results</p>
+            </div>
+        </div>
+        <div class="cell d-f a-e">
+            <img src="https://images.pexels.com/photos/5490974/pexels-photo-5490974.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+            <div>
+                <h2 class="h h4">LET IT BE</h2>
+                <p>Of course</p>
+            </div>
+        </div>
+        <div class="cell d-f a-e">
+            <img src="https://images.pexels.com/photos/885021/pexels-photo-885021.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+            <div>
+                <h2 class="h h3">STAY INSPIRED</h2>
+                <p>New ideas are coming soon</p>
+            </div>
+        </div>
+        <div class="cell d-f a-e">
+            <img src="https://images.pexels.com/photos/4440123/pexels-photo-4440123.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+            <div>
+                <h2 class="h h4">WHAT IF TODAY?</h2>
+                <p>Here and now</p>
+            </div>
+        </div>
+        <div class="cell d-f a-e">
+            <img src="https://images.pexels.com/photos/4186329/pexels-photo-4186329.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+            <div>
+                <h2 class="h h4">TAKE IT EASY</h2>
+                <p>Have less, do more</p>
+            </div>
+        </div>
+        <div class="cell">
+            <img src="https://images.pexels.com/photos/5245865/pexels-photo-5245865.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+        </div>
+        <a href="#" class="cell">LEARN MORE</a>
+    </section>
+</body>
+</html>

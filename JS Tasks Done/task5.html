@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container py-5">
+        <h1 class="mb-4">Task 5</h1>
+        <p>Посчитать сумму продаж товаров по строками и столбцам по нажатию кнопки</p>
+        <hr class="my-4">
+        <table class="table table-bordered">
+            <tr>
+                <th rowspan="2">Товар</th>
+                <th colspan="7" class="text-center">День недели</th>
+                <th rowspan="2">Всего</th>
+            </tr>
+            <tr>
+                <th>Пн</th>
+                <th>Вт</th>
+                <th>Ср</th>
+                <th>Чт</th>
+                <th>Пт</th>
+                <th>Сб</th>
+                <th>Вс</th>
+            </tr>
+            <tr class="value-row">
+                <td>Ручки</td>
+                <td class="value-item">4</td>
+                <td class="value-item"></td>
+                <td class="value-item">6</td>
+                <td class="value-item">1</td>
+                <td class="value-item">8</td>
+                <td class="value-item">2</td>
+                <td class="value-item">2</td>
+                <td class="total-by-row"></td>
+            </tr>
+            <tr class="value-row">
+                <td>Карандаши</td>
+                <td class="value-item">3</td>
+                <td class="value-item"></td>
+                <td class="value-item">4</td>
+                <td class="value-item">7</td>
+                <td class="value-item">0</td>
+                <td class="value-item">6</td>
+                <td class="value-item">8</td>
+                <td class="total-by-row"></td>
+            </tr>
+            <tr class="value-row">
+                <td>Тетради 12 листов</td>
+                <td class="value-item">4</td>
+                <td class="value-item">23</td>
+                <td class="value-item">7</td>
+                <td class="value-item"></td>
+                <td class="value-item">1</td>
+                <td class="value-item">12</td>
+                <td class="value-item">3</td>
+                <td class="total-by-row"></td>
+            </tr>
+            <tr class="value-row">
+                <td>Тетради 48 листов</td>
+                <td class="value-item">2</td>
+                <td class="value-item">5</td>
+                <td class="value-item">7</td>
+                <td class="value-item">1</td>
+                <td class="value-item">3</td>
+                <td class="value-item">4</td>
+                <td class="value-item">8</td>
+                <td class="total-by-row"></td>
+            </tr>
+            <tr class="total-row">
+                <td>Всего</td>
+                <td class="total-by-column"></td>
+                <td class="total-by-column"></td>
+                <td class="total-by-column"></td>
+                <td class="total-by-column"></td>
+                <td class="total-by-column"></td>
+                <td class="total-by-column"></td>
+                <td class="total-by-column"></td>
+                <td class="total-by-row"></td>
+            </tr>
+        </table>
+        <button class="btn btn-primary" id="toggler">Посчитать</button>
+    </div>
+    <script>
+
+        const btn = document.getElementById('toggler')
+        const text = document.getElementById('text')
+
+        const totalRow = document.querySelector('tr.total-row')
+        const totalCellInTable = totalRow.querySelector('.total-by-row')
+        
+        let sumByRow = 0
+
+        btn.onclick = e => {
+            // очистка ячеек
+            totalRow.querySelectorAll('.total-by-column').forEach(el => el.innerHTML = '')
+            totalCellInTable.innerHTML = ''
+
+            //итерация по строкам основной таблицы
+            document.querySelectorAll('.value-row').forEach(tr => {
+                //переменная суммы по строке
+                sumByRow = 0
+                //итерация по ячейкам
+                tr.querySelectorAll('.value-item').forEach((td, index) => {
+                    //увеличивается сумма по строке
+                    sumByRow += Number(td.innerHTML)
+                    // ищем соотвтетсвующую ячейку в конце столбца
+                    let totalCellInColumn = totalRow.querySelectorAll('.total-by-column')[index]
+                    // увеличивается сумма по столбцу
+                    totalCellInColumn.innerHTML = Number(totalCellInColumn.innerHTML) + Number(td.innerHTML)
+                })
+                //записывается сумма по строке
+                tr.querySelector('.total-by-row').innerHTML = sumByRow
+
+                //увеличивается общая сумма
+                totalCellInTable.innerHTML = Number(totalCellInTable.innerHTML) + sumByRow
+            })
+        }
+
+    </script>
+
+</body>
+
+</html>

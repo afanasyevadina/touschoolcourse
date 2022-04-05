@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Surveys</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand navbar-light bg-white shadow">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            ToU Surveys
+        </a>
+        <div>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        Kamila Aktayeva
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="login.html">
+                            Выход
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<main class="py-5">
+    <div class="container">
+        <div class="card shadow">
+            <form class="card-body p-4" action="results.html">
+                <div class="d-sm-flex align-items-center justify-content-between">
+                    <h2 class="mb-3 mb-sm-0">Что вы ответите на это?</h2>
+                    <small class="text-secondary"><i class="far fa-user-circle"></i> Aidana Maratova, 19/03/2022</small>
+                </div>
+                <hr class="my-4">
+                <label class="mb-3 d-block">
+                    <input type="radio" name="variant_id" value="1" class="me-2" required> Отвечу вопросом на вопрос
+                </label>
+                <label class="mb-3 d-block">
+                    <input type="radio" name="variant_id" value="2" class="me-2" required> Буду избегать ответа
+                </label>
+                <label class="mb-3 d-block">
+                    <input type="radio" name="variant_id" value="3" class="me-2" required> Прошу помощь друга
+                </label>
+                <hr>
+                <div class="d-flex justify-content-between align-items-center">
+                    <button class="btn btn-primary">Ответить</button>
+                    <small class="text-secondary"><i class="far fa-hand"></i> 10 ответов</small>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

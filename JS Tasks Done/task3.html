@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container py-5">
+        <h1 class="mb-4">Task 3</h1>
+        <p>Вывести количество прошедших дней с введенной даты, если она раньше текущей, иначе количество оставшихся дней
+            до неё</p>
+        <p>Использовать ресурс <a target="_blank"
+                href="https://learn.javascript.ru/datetime">https://learn.javascript.ru/datetime</a></p>
+        <hr class="my-4">
+        <form action="#" id="eq-form" autocomplete="off">
+            <div class="mb-4">
+                <label for="date" class="mb-2">Дата:</label>
+                <input type="date" class="form-control" name="date" id="date" required>
+            </div>
+            <button class="btn btn-primary">Посчитать</button>
+        </form>
+        <hr class="my-4">
+        <div class="mb-3">Результат: <span id="result"></span></div>
+    </div>
+    <script>
+
+        const form = document.getElementById('eq-form')
+        const result = document.getElementById('result')
+
+        let date, diff, diffInDays, diffInHours, diffInMinutes, diffInSeconds
+
+        form.onsubmit = e => {
+            e.preventDefault()
+
+            date = new Date(form.elements.date.value)
+
+            setInterval(() => {
+                diff = Date.now() - date.getTime()
+
+                diffInDays = Math.round(diff / (1000 * 3600 * 24))
+                diffInHours = Math.round((diff - diffInDays * 1000 * 3600 * 24) / (1000 * 3600)) 
+                diffInMinutes = Math.round((diff - diffInDays * 1000 * 3600 * 24 - diffInHours * 1000 * 3600) / (1000 * 60))
+                diffInSeconds = Math.round((diff - diffInDays * 1000 * 3600 * 24 - diffInHours * 1000 * 3600 - diffInMinutes * 1000 * 60) / 1000)
+
+                result.innerHTML = (diffInDays > 0 ? 'Прошло ' : 'Осталось ')
+                    + Math.abs(diffInDays) + ' дней '
+                    + Math.abs(diffInHours) + ' часов '
+                    + Math.abs(diffInMinutes) + ' минут '
+                    + Math.abs(diffInSeconds) + ' секунд '
+            }, 1000)
+
+        }
+
+    </script>
+
+</body>
+
+</html>

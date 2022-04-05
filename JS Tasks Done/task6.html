@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 6</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="mb-4">Task 6</h1>
+        <p></p>
+        <hr class="my-4">
+        <img src="images/1.jpeg" alt="" id="circle" class="rounded-circle" width="100" height="100" style="object-fit: cover;">
+    </div>
+    <script>
+        const circle = document.getElementById('circle')
+        circle.style.position = 'absolute'
+        document.onmousemove = e => {
+            setTimeout(() => {
+                circle.style.top = (e.y - circle.clientHeight / 2) + 'px'
+                circle.style.left = (e.x - circle.clientWidth / 2) + 'px'
+            }, 100)
+        }
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container py-5">
+        <h1 class="mb-4">Task 2</h1>
+        <p>Решить квадратное уравнение через дискриминант и вывести результат</p>
+        <hr class="my-4">
+        <form action="#" id="eq-form" autocomplete="off">
+            <div class="row text-nowrap">
+                <div class="mb-4 col-sm-4 d-flex">
+                    <label class="me-2" for="a">A = </label>
+                    <input type="number" class="form-control" name="a" id="a">
+                </div>
+                <div class="mb-4 col-sm-4 d-flex">
+                    <label class="me-2" for="b">B = </label>
+                    <input type="number" class="form-control" name="b" id="b">
+                </div>
+                <div class="mb-4 col-sm-4 d-flex">
+                    <label class="me-2" for="c">C = </label>
+                    <input type="number" class="form-control" name="c" id="c">
+                </div>
+            </div>
+            <button class="btn btn-primary">Посчитать</button>
+        </form>
+        <hr class="my-4">
+        <div class="mb-3">D = <span id="discriminant"></span></div>
+        <div class="mb-3">X1 = <span id="x1"></span></div>
+        <div class="mb-3">X2 = <span id="x2"></span></div>
+    </div>
+    <script>
+
+        const form = document.getElementById('eq-form')
+        const discriminantElement = document.getElementById('discriminant')
+        const x1Element = document.getElementById('x1')
+        const x2Element = document.getElementById('x2')
+
+        let aControl = form.elements.a // input name="a"
+        let bControl = form.elements.b // input name="b"
+        let cControl = form.elements.c // input name="c"
+
+        let a, b, c, discriminant, x1, x2
+
+        form.onsubmit = e => {
+            e.preventDefault()
+            a = aControl.value
+            b = bControl.value
+            c = cControl.value
+
+            discriminant = Math.pow(b, 2) - 4 * a * c
+
+            discriminantElement.innerHTML = discriminant
+            x1 = (-1 * b + Math.sqrt(discriminant)) / (2 * a)
+            x2 = (-1 * b - Math.sqrt(discriminant)) / (2 * a)
+
+            x1Element.innerHTML = x1
+            x2Element.innerHTML = x2
+        }
+
+    </script>
+
+</body>
+
+</html>

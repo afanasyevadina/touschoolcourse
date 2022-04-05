@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Surveys</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            ToU Surveys
+        </a>
+    </div>
+</nav>
+<main class="py-5">
+    <div class="container pt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-sm-8">
+                <div class="card shadow">
+                    <form action="index.html" class="card-body p-4">
+                        <h2 class="mb-5 text-center">Регистрация</h2>
+                        <div class="mb-4">
+                            <input type="name" class="form-control" placeholder="Ваше имя" name="name">
+                            <span class="invalid-feedback">The name field is required</span>
+                        </div>
+                        <div class="mb-4">
+                            <input type="email" class="form-control" placeholder="Ваш email" name="email">
+                            <span class="invalid-feedback">The email field is required</span>
+                        </div>
+                        <div class="mb-4">
+                            <input type="password" class="form-control" placeholder="Придумайте пароль" name="password">
+                            <span class="invalid-feedback">The password field is required</span>
+                        </div>
+                        <button class="btn w-100 btn-primary mb-3">Создать аккаунт</button>
+                        <div class="text-center">
+                            <small>
+                                Уже зарегистрированы? <a href="login.html">Войти</a>
+                            </small>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,300&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Roboto Condensed", sans-serif;
+}
+header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 10%;
+	background: black;
+}
+header a{
+	color: white;
+	text-decoration: none;
+}
+a.logo{
+	font-size: 1.2 rem;
+	font-weight: bold;
+}
+nav{
+	display: flex;
+}
+nav a:not(:last-child){
+	margin-right: 30px;
+}
+.bal{
+	 background:url("../images/2.jpg") ;
+	 background-size: cover;
+	 background-attachment: fixed;
+	 margin-bottom: 50px;
+}
+.card{
+	padding: 50px;
+	background: linear-gradient(to top,black,transparent);
+	text-align: center;
+	color: white;
+
+}
+.card img{
+	width: 150px; 
+	height: 150px;
+  	object-fit: cover;
+  	border-radius: 50%;
+}
+.card h1{
+	margin: 15px 0;
+}
+.container{
+	width: 80vw;
+	margin-left: auto;
+	margin-right:auto
+}
+h2{
+	margin-bottom: 40px;
+	font-size: 3rem;
+}
+.about{
+	margin-bottom: 60px;
+	display: flex;
+	align-items: center;
+}
+.about-text, .about-img{
+width: 50%;
+}
+.about-img img{
+	width: 100%;
+}
+.about-text{
+	padding: 0 30 0 20 px;
+	border-left: 2px solid aquamarine;
+}
+.about-text p:not(:last-child){
+	margin-bottom: 20px;
+}

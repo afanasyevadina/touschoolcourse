@@ -1,0 +1,17 @@
+button .fa-chevron-down {
+    transition: .4s;
+}
+button:not(.collapsed) .fa-chevron-down {
+    transform: rotate(-180deg);
+}
+*[v-cloak] {
+    opacity: 0;
+    transition: opacity .4s;
+}
+.appear-enter-active, .appear-leave-active {
+    transition: .4s;
+}
+.appear-enter, .appear-leave-to {
+    transform: translateX(-100%);
+    opacity: 0;
+}

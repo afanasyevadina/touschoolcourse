@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    font-family: Segoe Print;
+    font-size: 1em;
+}
+.wrapper {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: lightslategray;
+}
+.draggable-item {
+    position: absolute;
+    padding: 40px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .75);
+    background-color: slateblue;
+    color: #ffffff;
+    cursor: grab;
+    user-select: none;
+}

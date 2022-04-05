@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 1</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <style>
+        *[v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <div class="container py-5">
+            <div class="d-flex justify-content-between mb-4 align-items-center">
+                <h1>Your CV</h1>
+                <button class="btn btn-primary" @click="editMode = !editMode">{{ editMode ? 'Предпросмотр' : 'Редактировать' }}</button>
+            </div>
+            <template v-if="editMode">
+                <form action="#" autocomplete="off">
+                    <h4 class="mb-4">Личные данные:</h4>
+                    <div class="row mb-3">
+                        <div class="mb-4 col-sm-6">
+                            <label class="mb-2">Имя</label>
+                            <input type="text" class="form-control" v-model="profile.firstName">
+                        </div>
+                        <div class="mb-4 col-sm-6">
+                            <label class="mb-2">Фамилия</label>
+                            <input type="text" class="form-control" v-model="profile.lastName">
+                        </div>
+                        <div class="mb-4 col-sm-6">
+                            <label class="mb-2">Дата рождения</label>
+                            <input type="date" class="form-control" v-model="profile.born">
+                        </div>
+                        <div class="mb-4 col-sm-6">
+                            <label class="mb-2">Позиция</label>
+                            <input type="text" class="form-control" v-model="profile.position">
+                        </div>
+                    </div>
+                    <h4 class="mb-4">Навыки и технологии:</h4>
+                    <div class="d-flex flex-wrap mb-4">
+                        <div class="btn btn-light border me-3 mb-3" v-for="(skill, index) in profile.skills"
+                            :key="index">
+                            {{ skill }}
+                            <a href="#" class="btn-close ms-2" @click.prevent="deleteSkill(index)"></a>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4">
+                        <input v-model="newSkillText" form="helper-form" type="text" class="form-control me-2"
+                            placeholder="Вводите ваши навыки">
+                        <button form="helper-form" class="btn btn-primary">+</button>
+                    </div>
+                    <hr>
+                    <h4 class="mb-4">Сведения об образовании:</h4>
+                    <div class="row mb-3" v-for="(edu, index) in profile.education" :key="index">
+                        <div class="mb-3 col-sm-6">
+                            <label class="mb-2">Учебное заведение</label>
+                            <input type="text" class="form-control" v-model="edu.university">
+                        </div>
+                        <div class="mb-3 col-sm-6">
+                            <label class="mb-2">Специальность</label>
+                            <input type="text" class="form-control" v-model="edu.speciality">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <a href="#" @click.prevent="deleteEducation(index)">- Удалить</a>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary mb-4" @click="addEducation">+ Добавить образование</button>
+                    <hr>
+                    <h4 class="mb-4">Сведения об опыте работы:</h4>
+                    <div class="row mb-3" v-for="(exp, index) in profile.experience" :key="index">
+                        <div class="mb-3 col-sm-6">
+                            <label class="mb-2">Компания</label>
+                            <input type="text" class="form-control" v-model="exp.company">
+                        </div>
+                        <div class="mb-3 col-sm-6">
+                            <label class="mb-2">Должность</label>
+                            <input type="text" class="form-control" v-model="exp.position">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <a href="#" @click.prevent="deleteExperience(index)">- Удалить</a>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary mb-4" @click="addExperience">+ Добавить опыт работы</button>
+                    
+                </form>
+                <form action="" id="helper-form" @submit.prevent="addSkill"></form>
+            </template>
+            <template v-else>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <b>Полное имя:</b> {{ fullName }}
+                        </div>
+                        <div class="mb-3">
+                            <b>Дата рождения:</b> {{ new Date(profile.born).toLocaleDateString() }}
+                        </div>
+                        <div class="mb-3">
+                            <b>Позиция:</b> {{ profile.position }}
+                        </div>
+                        <div class="mb-3">
+                            <b>Навыки и технологии:</b>
+                            <ul>
+                                <li v-for="(skill, index) in profile.skills" :key="index">{{ skill }}</li>
+                            </ul>
+                        </div>
+                        <div class="mb-3">
+                            <b>Образование:</b>
+                            <ol>
+                                <li v-for="(edu, index) in profile.education" :key="index">
+                                    {{ edu.university}}, {{ edu.speciality}}
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="mb-3">
+                            <b>Опыт работы:</b>
+                            <ol>
+                                <li v-for="(exp, index) in profile.experience" :key="index">
+                                    {{ exp.position}}, {{ exp.company}}
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+
+    <script src="../assets/js/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                profile: {
+                    firstName: '',
+                    lastName: '',
+                    born: '',
+                    position: '',
+                    skills: [],
+                    education: [],
+                    experience: []
+                },
+                newSkillText: '',
+                editMode: true
+            },
+            computed: {
+                fullName: function () {
+                    return this.profile.firstName + ' ' + this.profile.lastName
+                }
+            },
+            watch: {
+                profile: {
+                    deep: true,
+                    handler: function (newValue, oldValue) {
+                        localStorage.setItem('profile', JSON.stringify(this.profile))
+                    }
+                }
+            },
+            methods: {
+                addSkill: function () {
+                    this.profile.skills.push(this.newSkillText)
+                    this.newSkillText = ''
+                },
+                deleteSkill: function (index) {
+                    this.profile.skills.splice(index, 1)
+                },
+                addEducation: function() {
+                    this.profile.education.push({
+                        university: '',
+                        speciality: ''
+                    })
+                },
+                deleteEducation: function (index) {
+                    this.profile.education.splice(index, 1)
+                },
+                addExperience: function() {
+                    this.profile.experience.push({
+                        company: '',
+                        position: ''
+                    })
+                },
+                deleteExperience: function (index) {
+                    this.profile.experience.splice(index, 1)
+                }
+            },
+            mounted() {
+                if (localStorage.getItem('profile')) {
+                    this.profile = JSON.parse(localStorage.getItem('profile'))
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

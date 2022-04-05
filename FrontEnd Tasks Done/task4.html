@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            overflow: hidden;
+        }
+        #score-indicator {
+            height: 50px;
+            border-bottom: 1px solid #ddd;
+            padding: 0 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            user-select: none;
+        }
+        .quadrat {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            left: -100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="score-indicator"></div>
+    <script>
+        const scoreIndicator = document.getElementById('score-indicator')
+        var score
+        var setScore = val => {
+            score = val
+            scoreIndicator.innerHTML = val
+        }        
+        setScore(50)
+           
+        setInterval(() => {
+            let quadrat = document.createElement('div')
+            quadrat.classList.add('quadrat')
+            quadrat.style.top = (50 + Math.random() * (window.innerHeight - 150)) + 'px'
+            let anim = quadrat.animate([
+                {left: '100%'}
+            ], {
+                delay: 1000 * Math.random(),
+                duration: 4000 + Math.random() * 1000
+            })
+            anim.onfinish = e => {
+                setScore(score - 1)
+                quadrat.remove()
+            }
+            quadrat.onclick = event => {
+                setScore(score + 1)
+                event.target.animate([
+                    {transform: 'scale(1.05)', boxShadow: '0 0 10px blue'},
+                    {transform: 'scale(.9)', opacity: 0}
+                ], {
+                    duration: 300,
+                    easing: 'ease'
+                }).onfinish = e => {
+                    event.target.remove()
+                    anim.cancel()
+                }
+            }
+            document.body.appendChild(quadrat)
+        }, 1000)
+    </script>
+</body>
+</html>

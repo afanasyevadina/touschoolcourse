@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    font-size: 1em;
+    line-height: 150%;
+}
+
+.printed {
+    font-family: Segoe Print;
+}
+
+.font {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+    height: 110vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-image: url('../images/bg-1.jpg');
+    background-size: cover;
+    /*background-color: #f9f086;*/
+}
+.header:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -7%;
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 15%;
+    transform: skewY(-5deg);
+}
+.site-title {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 50px;
+}
+.site-title h1 {
+    font-size: 3em;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 1px #000000, -1px -1px 1px #000000;
+}
+.header .site-title h1 {
+    font-size: 4em;
+}
+.site-title h2 {
+    position: absolute;
+    bottom: -15px;
+    right: -30px;
+    font-weight: normal;
+    font-size: 1.5em;
+}
+.header .site-title h2 {
+    font-size: 2em;
+}
+.header .site-title {
+    margin-bottom: 80px;
+}
+.input-wrapper {
+    position: relative;
+    background-image: url('../images/input.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.input-wrapper button {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+.input-wrapper input {
+    background: transparent;
+    outline: none;
+    padding: 15px 20px;
+    font-size: 1em;
+    font-family: Segoe Print;
+    border: none;
+    width: 300px;
+}
+.container {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background-image: url('../images/border.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header a {
+    color: #000000;
+    text-decoration: none;
+    padding: 10px 0;
+    display: block;
+    margin-left: 20px;
+}
+.logo {
+    font-size: 1.6em;
+}
+nav {
+    display: flex;
+}
+.about {
+    padding-top: 5vh;
+    padding-bottom: 10vh;
+    position: relative;
+}
+.about-text {
+    width: 50%;
+    margin-right: 0;
+    margin-left: auto;
+}
+.about .shape:nth-child(1) {
+    background-color: #d3c8f0;
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    width: 100px;
+    height: 100px;
+    transform: rotate(45deg);
+}
+.about .shape:nth-child(2) {
+    background-color: #afedee;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    width: 80px;
+    height: 80px;
+    transform: rotate(45deg);
+}
+.about .shape:nth-child(3) {
+    background-color: #a59be8;
+    position: absolute;
+    top: 60%;
+    left: 15%;
+    width: 50px;
+    height: 50px;
+    transform: rotate(45deg);
+}
+.about p {
+    margin-bottom: 50px;
+}
+.about button {
+    background-image: url('../images/button.png');
+    background-size: 100% 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    height: 60px;
+    width: 200px;
+    font-weight: bold;
+    transition: .3s;
+}
+.about button:hover {
+    transform: scale(1.05);
+}
+.demo {
+    position: relative;
+    background-color: #d3c8f0;
+    padding: 10vh 0;
+}
+.demo:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -20px;
+    width: 100%;
+    height: 20px;
+    background-image: url('../images/border-top.png');
+    background-size: 100% 100%;
+}
+.demo:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -20px;
+    width: 100%;
+    height: 20px;
+    background-image: url('../images/border-top.png');
+    background-size: 100% 100%;
+    transform: rotate(180deg);
+}
+.demo .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}

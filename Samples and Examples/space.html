@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @keyframes stars {
+      100% {
+        top: calc(50% - 3px);
+        left: calc(50% - 3px);
+      }
+    }
+
+    @keyframes shine {
+      100% {
+        background: lightyellow;
+        box-shadow: 0 0 15px lightyellow;
+      }
+    }
+
+    @keyframes out {
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes rotate {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    * {
+      margin: 0;
+    }
+
+    .space {
+      background: #001;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .stars {
+      position: relative;
+      height: 100vh;
+      animation: rotate .2s 5s ease 15 forwards;
+    }
+
+    .star {
+      width: 6px;
+      height: 6px;
+      background: gold;
+      box-shadow: 0 0 10px gold;
+      border-radius: 50%;
+      position: absolute;
+      animation:
+        shine .8s linear infinite alternate,
+        stars 2s 6s ease forwards,
+        out 1s 7s forwards;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="space">
+    <div class="stars"></div>
+  </div>
+  <script>
+    var stars = document.querySelector('.stars')
+    for (var i = 0; i < 100; i++) {
+      let star = document.createElement('div')
+      star.classList.add('star')
+      star.style.opacity = Math.random() * 0.5 + 0.5
+      star.style.top = Math.random() * 100 + '%'
+      star.style.left = Math.random() * 100 + '%'
+      stars.append(star)
+    }
+  </script>
+</body>
+
+</html>

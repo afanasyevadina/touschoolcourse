@@ -1,0 +1,23 @@
+*[v-cloak] {
+    display: none;
+}
+
+button .fa-chevron-down {
+    transition: .3s;
+}
+
+button:not(.collapsed) .fa-chevron-down {
+    transform: rotate(-180deg);
+}
+
+.empty-message-box {
+    min-height: 50vh;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.empty-message-box .text {
+    color: #000;
+}

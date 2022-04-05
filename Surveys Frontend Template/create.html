@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Surveys</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand navbar-light bg-white shadow">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            ToU Surveys
+        </a>
+        <div>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        Kamila Aktayeva
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="login.html">
+                            Выход
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<main class="py-5">
+    <div class="container">
+        <div class="card shadow">
+            <form class="card-body p-4" action="index.html">
+                <h2 class="mb-4">Новый опрос</h2>
+                <div class="mb-4">
+                    <textarea class="form-control" placeholder="Текст вопроса" name="text"></textarea>
+                    <span class="invalid-feedback">This field is required</span>
+                </div>
+                <div class="mb-4 row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Вариант #1" name="variants[0][text]">
+                        <span class="invalid-feedback">This field is required</span>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-light">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mb-4 row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Вариант #2" name="variants[1][text]">
+                        <span class="invalid-feedback">This field is required</span>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-light">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mb-4 row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Вариант #3" name="variants[2][text]">
+                        <span class="invalid-feedback">This field is required</span>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-light">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-light">
+                    <i class="fas fa-add"></i>
+                    Добавить вариант ответа
+                </a>
+                <hr>
+                <div class="text-end">
+                    <button class="btn btn-primary">Опубликовать</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

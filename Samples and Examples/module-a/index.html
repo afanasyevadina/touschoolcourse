@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Graz Concerts</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header>
+		<a href="#" class="logo">Logo</a>
+		<label for="menu-checker" class="menu-toggler">
+			<span></span>
+			<span></span>
+			<span></span>
+		</label>
+	</header>
+	<input type="checkbox" id="menu-checker">
+	<div class="menu">
+		<nav>
+			<a href="#">Home</a>
+			<a href="#">About</a>
+			<a href="#">Booking</a>
+			<a href="#">Contacts</a>
+		</nav>
+	</div>
+	<div class="banner">
+		<div class="container">
+			<h1 class="site-title">Graz Concerts</h1>
+			<h4 class="site-subtitle">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h4>
+			<a href="#" class="site-btn">View artists</a>
+		</div>
+	</div>
+	<section class="upcoming">
+		<div class="container">
+			<div class="section-title">Upcoming events</div>
+			<div class="events">
+				<div class="event">
+					<div class="event-date">September, 23</div>
+					<div class="divider"></div>
+					<div class="event-name">Artist: Eminem</div>
+					<div class="event-place">Main Hall, 23:00</div>
+				</div>
+				<div class="event">
+					<div class="event-date">September, 23</div>
+					<div class="divider"></div>
+					<div class="event-name">Artist: Eminem</div>
+					<div class="event-place">Main Hall, 23:00</div>
+				</div>
+				<div class="event">
+					<div class="event-date">September, 23</div>
+					<div class="divider"></div>
+					<div class="event-name">Artist: Eminem</div>
+					<div class="event-place">Main Hall, 23:00</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="artists">
+		<div class="artist">
+			<img src="images/artist-1.jpeg" alt="">
+			<div class="artist-content">
+				<div class="artist-name">Artist Name</div>
+				<small class="artist-date">23/09/2021, Main Hall</small>
+			</div>
+		</div>
+		<div class="artist">
+			<img src="images/artist-2.webp" alt="">
+			<div class="artist-content">
+				<div class="artist-name">Artist Name</div>
+				<small class="artist-date">23/09/2021, Main Hall</small>
+			</div>
+		</div>
+		<div class="artist">
+			<img src="images/artist-3.jpeg" alt="">
+			<div class="artist-content">
+				<div class="artist-name">Artist Name</div>
+				<small class="artist-date">23/09/2021, Main Hall</small>
+			</div>
+		</div>
+		<div class="artist">
+			<img src="images/artist-4.webp" alt="">
+			<div class="artist-content">
+				<div class="artist-name">Artist Name</div>
+				<small class="artist-date">23/09/2021, Main Hall</small>
+			</div>
+		</div>
+		<div class="artist">
+			<img src="images/artist-5.webp" alt="">
+			<div class="artist-content">
+				<div class="artist-name">Artist Name</div>
+				<small class="artist-date">23/09/2021, Main Hall</small>
+			</div>
+		</div>
+		<div class="artist">
+			<img src="images/artist-6.webp" alt="">
+			<div class="artist-content">
+				<div class="artist-name">Artist Name</div>
+				<small class="artist-date">23/09/2021, Main Hall</small>
+			</div>
+		</div>
+	</div>
+	<section class="upcoming">
+		<div class="container">
+			<div class="section-title">Visitors reviews</div>
+			<div class="reviews">
+				<div class="review">
+					<i class="review-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem provident totam porro consequuntur libero, odio ea veniam. Saepe veniam ipsam ipsa minus earum. Fugiat repellat illum dignissimos inventore reiciendis, et!</i>
+					<div class="review-name">Person Name</div>
+				</div>
+				<div class="review">
+					<i class="review-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem provident totam porro consequuntur libero, odio ea veniam. Saepe veniam ipsam ipsa minus earum. Fugiat repellat illum dignissimos inventore reiciendis, et!</i>
+					<div class="review-name">Person Name</div>
+				</div>
+				<div class="review">
+					<i class="review-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem provident totam porro consequuntur libero, odio ea veniam. Saepe veniam ipsam ipsa minus earum. Fugiat repellat illum dignissimos inventore reiciendis, et!</i>
+					<div class="review-name">Person Name</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="img-block"></div>
+	<section>
+		<div class="container">
+			<form action="#">
+				<div class="form-grid">
+					<div>
+						<input type="text" placeholder="Your name">
+					</div>
+					<div>
+						<input type="email" placeholder="example@domain.com">
+					</div>
+				</div>
+				<div>
+					<textarea rows="10" placeholder="Your message"></textarea>
+				</div>
+				<div class="form-btn">
+					<button class="site-btn">Submit</button>
+				</div>
+			</form>
+		</div>
+	</section>
+	<footer>
+		<div class="container">Здесь будет футер</div>
+	</footer>
+</body>
+<script>
+	const checkHeader = () => {
+		if(window.scrollY >= document.querySelector('.banner').clientHeight) {
+			document.querySelector('header').classList.add('bg-dark')
+		} else {
+			document.querySelector('header').classList.remove('bg-dark')
+		}
+	}
+	checkHeader()
+	window.onscroll = function() {
+		checkHeader()
+	}
+</script>
+</html>

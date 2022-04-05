@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mr.Rashid</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/alert.js"></script>
+</head>
+
+<body>
+	<div id='preloader'>
+		<img src="img/preloader.gif" alt="preloader">
+	</div>
+
+	<header>
+		<a href="#" class="logo">RASHID</a>
+		<label for="menu-check" class="menu-toggler">
+			<span></span>
+			<span></span>
+			<span></span>
+		</label>
+		<input type="checkbox" id="menu-check" autocomplete="off">
+		<nav>
+			<a href="#">About</a>
+			<a href="#">Portfolio</a>
+			<a href="#">Contact</a>
+		</nav>
+	</header>
+
+	<div id="sidebar">
+		<div class="toggle-btn" onclick="openMenu()">
+		<span></span>
+		<span></span>
+		<span></span>
+		</div>
+		   <ul>
+		   <li>MENU</li>
+		   <li><a href="#">Home</a></li>
+		   <li><a href="#"> Contact</a></li>
+			<li><a href="#"> Phone</a></li>
+		   </ul>
+	</div>
+	<script>
+		function openMenu() {
+		document.getElementById("sidebar").classList.toggle('active');
+	 }
+	 </script>
+
+	<div class="banner">
+		<div class="card">
+			<img src="img/logo.png" alt="">
+			<h1>Rashid Kussainov</h1>
+			<h4>IT-school student</h4>
+		</div>
+	</div>
+	
+	<section class="container about">
+		<div class="about-text">
+			<h2>About me!</h2>
+			<p>
+				Hi, my name is Rashid. I live in Kazakhstan, the city of Pavlodar. 
+				At the moment I am a student of Toraighyrov University. 
+				In parallel, I study at an IT school.
+			</p>
+			<p>	
+				My goal is to learn and master Web programming.
+			</p>
+		</div>
+		<div class="about-img">
+			<img src="img/123.jpg" alt="">
+		</div>
+	</section>
+
+	<section class="container about rus">
+		<div class="about-text rus">
+			<h2>Обо мне!</h2>
+			<p>
+				Привет, меня зовут Рашид. Я живу в Казахстане, в городе Павлодар.
+				На данный момент я являюсь студентом Торайгыров Университет.
+				Параллельно учусь в IT-школе.
+			</p>
+			<p>	
+				Моя цель - изучить и освоить веб-программирование.
+			</p>
+		</div>
+		<div class="about-img rus">
+			<img src="img/1234.jpg" alt="">
+		</div>
+	</section>
+
+	<section class="container gallery">
+		<h2>Just gallery demo</h2>
+		<div class="grid">
+			<div class="cell">
+				<img src="https://img5.goodfon.ru/wallpaper/nbig/c/95/zima-snezhinki-fon-uzor-christmas-winter-background-patter-2.jpg" alt="Альбом 1">
+				<div class="cell-text">Альбом 1</div>
+			</div>
+			<div class="cell">
+				<img src="https://img5.goodfon.ru/wallpaper/nbig/8/8b/kazakhstan-kazakstan-flag-of-kazakhstan-kazakh-flag-kazakh-k.jpg" alt="Альбом 2">
+				<div class="cell-text">Альбом 2</div>
+			</div>
+			<div class="cell">
+				<img src="https://img5.goodfon.ru/wallpaper/nbig/b/13/pustynia-pesok-linii-tekstura.jpg" alt="Альбом 3">
+				<div class="cell-text">Альбом 3</div>
+			</div>
+			<div class="cell">
+				<img src="https://img5.goodfon.ru/wallpaper/nbig/4/68/pliazh-galka-kamni-fon-beach-texture-marine-morskie-pebbles.jpg" alt="Альбом 4">
+				<div class="cell-text">Альбом 4</div>
+			</div>
+			<div class="cell">
+				<img src="https://img4.goodfon.ru/wallpaper/nbig/2/76/more-glad-dal-volny-tekstura-abstraktsiia-minimalizm-sin.jpg" alt="Альбом 5">
+				<div class="cell-text">Альбом 5</div>
+			</div>
+			<div class="cell">
+				<img src="https://img5.goodfon.ru/wallpaper/nbig/a/81/night-forest-blue-background-texture-winter-nochnoi-les-sini.jpg" alt="Альбом 6">
+				<div class="cell-text">Альбом 6</div>
+			</div>
+		</div>
+	</section>
+	<section class="contact">
+		<h2>Contact me</h2>
+		<form action="#">
+			<p>
+				<label for="name">What is your name?</label>
+				<input type="text" name="name" id="name" placeholder="Mr. Somebody">
+			</p>
+			<p>
+				<label for="email">Where should I answer to?</label>
+				<input type="email" name="email" id="email" placeholder="thebest@domain.com">
+			</p>			
+			<p>
+				<label for="purpose">Choose your topic</label>
+				<select name="purpose" id="purpose">
+					<option>Work</option>
+					<option>Help</option>
+					<option>Just for fun</option>
+				</select>
+			</p>
+			<p>
+				<textarea name="message" id="message" rows="5" placeholder="Text someting"></textarea>
+			</p>
+			<button>Submit!</button>
+		</form>
+	</section>
+	<footer>
+		<div class="container">
+			<div class="links">
+				<a href="#">
+					<img src="img/icons8-instagram-30.svg" alt="">
+				</a>
+				<a href="#">
+					<img src="img/icons8-vk-в-круге.svg" alt="">
+				</a>
+				<a href="#">
+					<img src="img/icons8-whatsapp.svg" alt="">
+				</a>
+			</div>
+			<p>
+				&copy; All rights reserved, 2022
+			</p>
+		</div>
+	</footer>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="bg-light">
+
+    <div id="root" v-cloak>
+        <div class="container py-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Мои задачи</h2>
+                <button class="btn btn-primary" @click="addCollumn">
+                    <i class="fa-solid fa-plus"></i>
+                    Добавить список
+                </button>
+            </div>
+            <div v-if="boards.length == 0">
+                <div class='empty-message-box'>
+                    <h3 class="text">
+                        Тут пусто( 😢
+                    </h3>
+                </div>
+            </div>
+            <!-- <h4 v-if="tasks.length == 0">Тут пусто, а это значит, что у тебя нет дел и ты можешь {{ messages[Math.floor(Math.random() * messages.length)] }}</h4> -->
+            <div class="row pt-4">
+                <div v-for="(board, boardIndex) in boards" :key="boardIndex" class="col-lg-4 col-md-6">
+                    <div class="container py-4">
+
+                        <div class="border shadow-sm p-3 mb-3 bg-white">
+                            <input type="text" v-model="board.title" class="form-control border-0 border-bottom"
+                                placeholder="Введите название списка">
+                            <div style="margin-top: 12px"></div>
+                            <div v-for="(task, index) in board.tasks" :key="index">
+                                <div class="border shadow-sm p-3 mb-3 bg-white"
+                                    :style="`background: ${task.color} !important`">
+                                    <div class="row align-items-center">
+                                        <div class="col d-flex align-items-center">
+                                            <input type="checkbox" v-model="task.completed">
+                                            <input type="text" v-model="task.title"
+                                                class="form-control border-0 border-bottom ms-2"
+                                                placeholder="Введите название">
+                                        </div>
+                                        <div class="col-auto" v-if="task.date || task.time">
+                                            <span>До</span>
+                                            <small
+                                                v-if="task.date">{{ new Date(task.date).toLocaleDateString() }}</small>
+                                            <small v-if="task.time">{{ task.time }}</small>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button class="btn btn-light collapsed" data-bs-toggle="collapse"
+                                                :data-bs-target="`#task-${boardIndex}-${index}`">
+                                                <i class="fa-solid fa-chevron-down"></i>
+                                            </button>
+                                            <button class="btn btn-light" @click="deleteTask(index, boardIndex)">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="collapse" :id="`task-${boardIndex}-${index}`">
+                                        <div class="row pt-4">
+                                            <div class="col-5">
+                                                <input type="date" v-model="task.date" class="form-control">
+                                            </div>
+                                            <div class="col-5">
+                                                <input type="time" v-model="task.time" class="form-control">
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="color" style="height: 100%" v-model="task.color"
+                                                    class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-light" style="width: 100%" @click="addTask(boardIndex)">
+                                <i class="fa-solid fa-plus"></i>
+                                Добавить задачу
+                            </button>
+                            <div style="margin-top: 12px"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/vue.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script async src="./js/main.js"></script>
+</body>
+
+</html>

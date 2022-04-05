@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Task 0</title>
+</head>
+
+<body>
+
+    <div id="app" class="min-vh-100" :class="{'bg-dark text-white': darkTheme}">
+        <div class="container">
+            <div class="py-5">
+                <label>
+                    <input type="checkbox" v-model="darkTheme" autocomplete="off">  Темная тема
+                </label>
+            </div>
+            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis doloribus aspernatur quibusdam repudiandae
+                laboriosam saepe eaque quaerat enim, maxime, rerum harum? Vero dolore pariatur odit eos quo maiores praesentium
+                tempora.</h3>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                darkTheme: false
+            }
+        })
+
+    </script>
+</body>
+
+</html>
