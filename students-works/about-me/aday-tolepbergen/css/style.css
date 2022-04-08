@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins';
+    font-style: normal;
+	color: white;
+}
+
+body {
+	background: #202124;;
+}
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 10%;
+	background: #E5E5E5;
+}
+header a {
+	color: #1b242f;
+	text-decoration: none;
+}
+a.logo {
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+nav {
+	display: flex;
+}
+nav a:not(:last-child) {
+	margin-right: 30px;
+}
+
+.card {
+	padding: 50px;
+	text-align: right;
+	color: white;
+}
+.card img {
+	width: 686px;
+	height: 686x;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+.card p {
+	margin-top: -400px;
+	margin-bottom: 400px;
+	margin-right: 750px;
+	margin-left: 100px;
+	line-height: 48px;
+	text-align: center;
+	padding: 0 30px 20px 20px;
+	border-left: 2px solid #FFFFFF;
+}
+
+
+.btn {
+	margin-top: -440px;
+	margin-left: 320px;
+	margin-bottom: 340px;
+width: 213px;
+height: 57px;
+text-align: center;
+background: #FFA688;
+border-radius: 7px;
+display: flex;
+justify-content: center;
+}
+.btn a {
+	text-decoration: none;
+    font-weight: 600;
+	font-size: 24px;
+	line-height: 36px;
+	color: #000000;
+	align-items: center;
+	display: flex;
+}
+
+.t1 {
+	font-weight: 600;
+	font-size: 32px;
+}
+
+.t2 {
+	font-weight: 600;
+	font-size: 88px;
+	line-height: 132px;
+	color: #FFA688;
+}
+
+.t3{
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 36px;
+	color: #BCBCBD;
+}
+
+.card h1 {
+	margin: 15px 500px;
+}
+.card h4 {
+	font-weight: normal;
+}
+.container {
+	width: 90vw;
+	margin-left: auto;
+	margin-right: auto;
+}
+.container p{
+	color: #FFFFFF;
+}
+h2 {
+	margin-bottom: 30px;
+	font-size: 2rem;
+}
+.about {
+	margin-bottom: 50px;
+	display: flex;
+	align-items: center;
+}
+.about-text, .about-img {
+	width: 100%;
+	margin-bottom: 50px;
+}
+.about-img img {
+	width: 634px;
+	height: 785px;
+	border-radius: 10px;
+}
+
+.about-text a img {
+	width: 35px;
+	height: 35px;
+}
+
+.about-text {
+	padding: 0 30px 0 20px;
+	display: flex;
+}
+
+.textt p {
+	padding-bottom: 30px;
+}
+
+.textt {
+	margin-top: 30px;
+	margin-left: 140px;
+	font-weight: 400;
+	font-size: 32px;
+	line-height: 50px;
+	color: #FFFFFF;
+}
+
+.textt h2 {
+	font-weight: 600;
+	font-size: 56px;
+	color: #FFA688;
+}
+
+.about-text p:not(:last-child) {
+	margin-bottom: 20px;
+}
+.gallery {
+	margin-bottom: 100px;
+}
+.gallery h2 {
+	text-align: center;
+	font-weight: 600;
+	font-size: 56px;
+	color: #FFA688;
+	margin-bottom: 50px;
+}
+.gallery .grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-auto-rows: 150px;
+	grid-gap: 20px;
+}
+.gallery .grid .cell img {
+	width: 100%;
+	height: 100%;
+}
+
+.contact {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	color: #FFA688;
+	padding: 50px 20px;
+}
+
+
+.contact h2 {
+	text-align: center;
+	font-weight: 600;
+	font-size: 56px;
+	color: #FFA688;
+}
+
+.contact input, .contact select, .contact textarea {
+	display: block;
+	width: 400px;
+	max-width: 100%;
+	background: white;
+	padding: 10px 15px;
+	border: none;
+	outline: none;
+	font-size: 1rem;
+	color: gray;
+}
+.contact p {
+	margin-bottom: 25px;
+	color: #FFA688;
+}
+.contact label {
+	display: block;
+	margin-bottom: 10px;
+}
+.contact button {
+	background: #FFA688;
+	width: 100%;
+	padding: 15px 0;
+	border: none;
+	font-size: 1rem;
+	font-weight: bold;
+}
+footer {
+	background-color: lightgrey;
+	padding: 30px 0;
+	text-align: center;
+}
+
+footer .links {
+	margin-bottom: 20px;
+}
+footer .links a {
+	text-decoration: none;
+}
+footer .links a:not(:last-child) {
+	margin-right: 20px;
+}
