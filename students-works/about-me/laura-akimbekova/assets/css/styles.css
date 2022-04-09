@@ -142,6 +142,17 @@ iframe {
   margin-top: 0;
   margin-bottom: 15px;
 }
+
+.section-inner-in  {
+  display:flex;
+}
+
+.section-inner-in img{
+  width: 70%;
+  height: 70%;
+  object-fit: cover;
+}
+
 .header .profile-content .social a {
   background: #b0b7bf;
   width: 36px;

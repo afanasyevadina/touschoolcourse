@@ -1,0 +1,9 @@
+button .fa-chevron-down {
+    transition: .4s;
+}
+button:not(.collapsed) .fa-chevron-down {
+    transform: rotate(-180deg);
+}
+*[v-cloak] {
+    display: none;
+}

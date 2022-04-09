@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-light">
+    <div id="app" v-cloak>
+        <div class="container py-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Мои задачи</h2>
+                <button class="btn btn-primary" @click="addTask">
+                    <i class="fa-solid fa-plus"></i>
+                    Добавить задачу
+                </button>
+            </div>
+            <div class="mb-4" v-if="tasks.length">
+                <input type="text" 
+                class="form-control" 
+                placeholder="Поиск по задачам..."
+                v-model="searchText"
+                >
+            </div>
+
+            <transition-group name="appear" tag="div">  
+            <div class="border bg-white shadow-sm p-3 mb-3" v-for="task in activeTasks" :key="task.id">
+                <div class="row align-items-center">
+                    <div class="col d-flex">
+                        <input type="checkbox" v-model="task.completed">
+                        <input type="text" 
+                        v-model="task.title" 
+                        class="form-control border-0 rounded-0 border-bottom ms-2"
+                        placeholder="Введите название">
+                    </div>
+                    <div 
+                    class="col-auto" 
+                    v-if="task.date || task.time" 
+                    :class="{'text-danger': checkTime(task)}"
+                    >
+                        До
+                        <span v-if="task.date">
+                            {{ new Date(task.date).toLocaleDateString() }}
+                        </span v-if="task.time">
+                        <span>{{ task.time }}</span>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-light collapsed" data-bs-toggle="collapse"
+                            :data-bs-target="`#task-${task.id}`">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <button class="btn btn-light" @click="deleteTask(task.id)">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="collapse" :id="`task-${task.id}`">
+                    <div class="row pt-4">
+                        <div class="col-6">
+                            <input type="date" class="form-control" v-model="task.date">
+                        </div>
+                        <div class="col-6">
+                            <input type="time" class="form-control" v-model="task.time">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </transition-group>
+
+            <transition name="appear">
+                <div v-if="completedTasks.length">
+                    <hr class="mt-4">
+                    <h4 class="mb-4">Выполненные задачи</h4> 
+                    <transition-group name="appear" tag="div">  
+                        <div class="border bg-white p-3 mb-3 text-decoration-line-through text-muted" 
+                        v-for="task in completedTasks" :key="task.id">
+                        <div class="row align-items-center">
+                            <div class="col d-flex">
+                                <input type="checkbox" v-model="task.completed">
+                                <div class="ms-2"> {{task.title}} </div>
+                            </div>
+
+                            <div class="col-auto" v-if="task.date || task.time">
+                                До
+                                <span v-if="task.date">
+                                    {{ new Date(task.date).toLocaleDateString() }}
+                                </span v-if="task.time">
+                                <span>{{ task.time }}</span>
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-light" @click="deleteTask(task.id)">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </transition-group>
+                </div>
+            </transition>
+            <div v-if="!tasks.length" class="p-5 text-center h4 bg-white shadow-sm">Ура! Делать ничего не надо😋!</div>
+            <div v-else-if="!filteredTasks.length" class="p-5 text-center h4 bg-white shadow-sm">Мы искали, но не нашли💔</div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/vue.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
