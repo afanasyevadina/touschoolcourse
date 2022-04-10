@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>About this person</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<header>
+		<a href="#" class="logo">A. Dina</a>
+		<nav>
+			<a href="#">About</a>
+			<a href="#">Portfolio</a>
+			<a href="#">Contact</a>
+		</nav>
+	</header>
+	<div class="banner">
+		<div class="card">
+			<img src="images/avatar.jpg" alt="">
+			<h1>Dina Afanasyeva</h1>
+			<h4>Web Developer</h4>
+		</div>
+	</div>
+	<section class="container about">
+		<div class="about-text">
+			<h2>Who am I?</h2>
+			<p>
+				Full-stack web developer.
+				Skilled in development of LMS, training platforms, landings, API for apps.
+				Winner of WorldSkills Kazakhstan 2019, WorldSkills Eurasia 2020, WorldSkills Asia 2021.
+				Bronze medalist and Best of the nation in EuroSkills 2021.
+				Deputy Chief Expert for Web Development Competence.				
+			</p>
+			<p>
+				Also student of Computer Science faculty.
+			</p>
+			<p>	
+				What is my next purpose? I think that this is learning more in IT, improving skills, and try to create
+				something great :)
+			</p>
+		</div>
+		<div class="about-img">
+			<img src="images/about.jpg" alt="">
+		</div>
+	</section>
+	<section class="container gallery">
+		<h2>Just gallery demo</h2>
+		<div class="grid">
+			<div class="cell">
+				<img src="https://images.pexels.com/photos/1105766/pexels-photo-1105766.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+			</div>
+			<div class="cell">
+				<img src="https://images.pexels.com/photos/5490974/pexels-photo-5490974.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+			</div>
+			<div class="cell">
+				<img src="https://images.pexels.com/photos/885021/pexels-photo-885021.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+			</div>
+			<div class="cell">
+				<img src="https://images.pexels.com/photos/4440123/pexels-photo-4440123.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+			</div>
+			<div class="cell">
+				<img src="https://images.pexels.com/photos/4186329/pexels-photo-4186329.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+			</div>
+			<div class="cell">
+				<img src="https://images.pexels.com/photos/5245865/pexels-photo-5245865.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+			</div>
+		</div>
+	</section>
+	<section class="contact">
+		<h2>Contact me</h2>
+		<form action="#">
+			<p>
+				<label for="name">What is your name?</label>
+				<input type="text" name="name" id="name" placeholder="Mr. Somebody">
+			</p>
+			<p>
+				<label for="email">Where should I answer to?</label>
+				<input type="email" name="email" id="email" placeholder="thebest@domain.com">
+			</p>			
+			<p>
+				<label for="purpose">Choose your topic</label>
+				<select name="purpose" id="purpose">
+					<option>Work</option>
+					<option>Help</option>
+					<option>Just for fun</option>
+				</select>
+			</p>
+			<p>
+				<textarea name="message" id="message" rows="5" placeholder="Text someting"></textarea>
+			</p>
+			<button>Submit!</button>
+		</form>
+	</section>
+	<footer>
+		<div class="container">
+			<div class="links">
+				<a href="#">
+					<img src="images/linkedin.svg" alt="">
+				</a>
+				<a href="#">
+					<img src="images/instagram.svg" alt="">
+				</a>
+				<a href="#">
+					<img src="images/twitter.svg" alt="">
+				</a>
+			</div>
+			<p>
+				&copy; All rights reserved, 2022
+			</p>
+		</div>
+	</footer>
+</body>
+
+</html>
